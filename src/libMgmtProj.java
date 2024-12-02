@@ -41,3 +41,32 @@ public class Book {
         return "Book ID: " + bookId + ", Title: " + title + ", Author: " + author;
     }
 }
+
+
+
+public class Member {
+    private String name; // Encapsulation
+    private int memberId;
+    private static int memberCounter = 0; // Static variable to track the total number of members
+
+    // Constructor
+    public Member(String name) {
+        this.name = name;
+        this.memberId = ++memberCounter;
+    }
+
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Getter for memberId
+    public int getMemberId() {
+        return memberId;
+    }
+
+    // Display member information
+    public void displayInfo() {
+        System.out.println("Member ID: " + memberId + ", Name: " + name);
+    }
+}
