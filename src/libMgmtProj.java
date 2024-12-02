@@ -78,12 +78,12 @@ public class Member {
 import java.util.Scanner;
 
 public class LibrarySystem {
-    private static final int MAX_BOOKS = 100; // Fixed array size for books
-    private static final int MAX_MEMBERS = 100; // Fixed array size for members
+    private static final int MAX_BOOKS = 100;
+    private static final int MAX_MEMBERS = 100;
     private static Book[] books = new Book[MAX_BOOKS];
     private static Member[] members = new Member[MAX_MEMBERS];
-    private static int bookCount = 0; // Counter for books
-    private static int memberCount = 0; // Counter for members
+    private static int bookCount = 0;
+    private static int memberCount = 0;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -95,7 +95,8 @@ public class LibrarySystem {
             System.out.println("2. Add Member");
             System.out.println("3. Display Books");
             System.out.println("4. Display Members");
-            System.out.println("5. Exit");
+            System.out.println("5. Calculate Overdue Fine");
+            System.out.println("6. Exit");
             System.out.print("Enter choice: ");
 
             int choice = scanner.nextInt();
@@ -106,7 +107,8 @@ public class LibrarySystem {
                 case 2 -> addMember(scanner);
                 case 3 -> displayBooks();
                 case 4 -> displayMembers();
-                case 5 -> running = false;
+                case 5 -> calculateFine(scanner);
+                case 6 -> running = false;
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         }
@@ -123,8 +125,10 @@ public class LibrarySystem {
         String title = scanner.nextLine();
         System.out.print("Enter book author: ");
         String author = scanner.nextLine();
-        books[bookCount++] = new Book(title, author); // Add book to the array
-        System.out.println("Book added successfully.");
+        // Use Math.random() to generate a unique random book ID
+        int randomId = (int) (Math.random() * 10000) + 1;
+        books[bookCount++] = new Book(title, author, randomId);
+        System.out.println("Book added successfully with ID: " + randomId);
     }
 
     private static void addMember(Scanner scanner) {
@@ -134,7 +138,7 @@ public class LibrarySystem {
         }
         System.out.print("Enter member name: ");
         String name = scanner.nextLine();
-        members[memberCount++] = new Member(name); // Add member to the array
+        members[memberCount++] = new Member(name);
         System.out.println("Member added successfully.");
     }
 
@@ -159,4 +163,14 @@ public class LibrarySystem {
             members[i].displayInfo();
         }
     }
+
+    private static void calculateFine(Scanner scanner) {
+        System.out.print("Enter the number of overdue days: ");
+        int overdueDays = scanner.nextInt();
+
+        // Use Math.ceil() and Math.min() to calculate fine
+        double fine = Math.min(50.0, Math.ceil(overdueDays * 2.5));
+        System.out.printf("The overdue fine is: $%.2f%n", fine);
+    }
 }
+
