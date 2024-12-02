@@ -1,3 +1,7 @@
+/* Vivian Ly vivianl1@umbc.edu
+Donna Raytcheva donnar1@umbc.edu
+*/
+
 import java.util.Scanner;
 
 public class LibrarySystem {
