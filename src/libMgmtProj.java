@@ -25,6 +25,7 @@ public class LibrarySystem {
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline character
 
+            
             switch (choice) {
                 case 1 -> addBook(scanner);
                 case 2 -> addMember(scanner);
