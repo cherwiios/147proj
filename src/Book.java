@@ -1,20 +1,30 @@
-// Class definition for Book
-public class Book {
-    // Private fields for the book's title, author, and unique ID
-    private String title;
+/**
+ * Represents a book in the library.
+ */
+public class Book extends LibraryItem {
     private String author;
-    private int bookId;
 
-    // Constructor to initialize a Book object with title, author, and book ID
+    /**
+     * Constructor for creating a new Book.
+     * @param title The title of the book.
+     * @param author The author of the book.
+     * @param bookId The unique identifier for the book.
+     */
     public Book(String title, String author, int bookId) {
-        this.title = title; // Assigns the title passed to the constructor
-        this.author = author; // Assigns the author passed to the constructor
-        this.bookId = bookId; // Assigns the book ID passed to the constructor
+        super(title, bookId);
+        this.author = author;
     }
 
-    // Overrides the toString method to provide a string representation of the book
+    /**
+     * Provides a string representation of the book details.
+     * @return Formatted book details.
+     */
+    public String getBookDetails() {
+        return String.format("Book ID: %d, Title: %s, Author: %s", itemId, title, author);
+    }
+
     @Override
-    public String toString() {
-        return "Book ID: " + bookId + ", Title: " + title + ", Author: " + author;
+    public String display() {
+        return "Book ID: " + itemId + ", Title: " + title + ", Author: " + author;
     }
 }
