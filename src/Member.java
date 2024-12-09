@@ -7,7 +7,7 @@ public class Member {
     private static int memberCounter = 0;
 
     /**
-     * Constructor for creating a new Member.
+     
      * @param name The name of the member.
      */
     public Member(String name) {
