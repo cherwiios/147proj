@@ -5,7 +5,7 @@ public class Book extends LibraryItem {
     private String author;
 
     /**
-     * Constructor for creating a new Book.
+     
      * @param title The title of the book.
      * @param author The author of the book.
      * @param bookId The unique identifier for the book.
