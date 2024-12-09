@@ -6,7 +6,7 @@ public abstract class LibraryItem {
     protected int itemId;
 
     /**
-     * Constructor for library items.
+     
      * @param title the title of the library item
      * @param itemId the unique identifier for the item
      */
